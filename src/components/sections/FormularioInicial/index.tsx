@@ -29,8 +29,8 @@ const OPCOES_FATURAMENTO = [
 
 const LOGOS_CLIENTES = [
   { nome: "Fresh Sandwich", src: "/clientes/fresh.png" },
-  { nome: "LarShop", src: "/clientes/larshop.png" },
-  { nome: "Lig Lig", src: "/clientes/lig-lig.png" },
+  { nome: "LarShop", src: "/clientes/LarShop.png" },
+  { nome: "Lig Lig", src: "/clientes/LigLig.png" },
   { nome: "Marques Araújo", src: "/clientes/marques-araujo.png" },
   { nome: "Press Metrologia", src: "/clientes/press-metrologia.png" },
   { nome: "Real Motos", src: "/clientes/real-motos.png" },
