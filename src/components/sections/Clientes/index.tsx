@@ -4,6 +4,7 @@ useEffect,useRef,useState,TouchEvent
 }
 from "react";
 import Image from "next/image";
+import { linkWhatsApp } from "@/lib/site";
 import{
 animate,cubicBezier
 }
@@ -37,7 +38,7 @@ tipo:"cliente",nome:"LM Pastéis",imagem:"/clientes/lmPasteis.png",investido:"R$
 tipo:"cliente",nome:"Pizzaria San Felix",imagem:"/clientes/san-felix.png",investido:"R$ 178,95",retornado:"R$ 2.914,72",roi:"ROAS: 16,29",notaExtra:"Primeiro final de semana de anúncios rodando",
 }
 ,{
-tipo:"cta",linha1:"seja você o",linha2:"próximo case",subtitulo:"Sua empresa pode estar aqui. Vamos conversar?",whatsappUrl:"https://wa.me/5511989437638",
+tipo:"cta",linha1:"seja você o",linha2:"próximo case",subtitulo:"Sua empresa pode estar aqui. Vamos conversar?",whatsappUrl:linkWhatsApp("Olá! Vi os cases no site da GV5 e quero conversar sobre a minha empresa."),
 }
 ,{
 tipo:"cliente",nome:"Empório Coisa de Minas",imagem:"/clientes/CoisadeMinas.png",investido:"R$ 1.565,00",retornado:"R$ 21.910,00",roi:"ROAS: 14,0",

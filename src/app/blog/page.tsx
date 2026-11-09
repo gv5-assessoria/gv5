@@ -1,15 +1,25 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { buscarPostsEmpresa } from "@/integrations/supabase/client";
+import { ogPagina } from "@/lib/site";
 import Cabecalho from "@/components/layout/Cabecalho";
 import Rodape from "@/components/layout/Rodape";
 import Faiscas from "@/components/effects/Faiscas";
 import { Calendar, ArrowRight } from "lucide-react";
 import styles from "./style.module.css";
 
-export const metadata = {
-  title: "Blog & Conteúdos Estratégicos | GV5 Assessoria",
-  description: "Artigos práticos sobre escala gastronômica, tráfego pago para restaurantes, engenharia de cardápio e ROI comprovado.",
+const TITULO = "Blog & Conteúdos Estratégicos | GV5 Assessoria";
+const DESCRICAO = "Artigos práticos sobre escala gastronômica, tráfego pago para restaurantes, engenharia de cardápio e ROI comprovado.";
+
+export const metadata: Metadata = {
+  title: TITULO,
+  description: DESCRICAO,
+  alternates: { canonical: "/blog" },
+  openGraph: ogPagina(TITULO, DESCRICAO, "/blog"),
 };
+
+// Post publicado ou editado no painel GV5 Insight aparece aqui em até 5 minutos, sem deploy.
+export const revalidate = 300;
 
 export default async function BlogIndexPage() {
   const posts = await buscarPostsEmpresa();

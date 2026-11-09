@@ -5,6 +5,9 @@ const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBh
 
 export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
+// Empresa cujos posts aparecem no blog (tabela companies do painel GV5 Insight). Um lugar só.
+const SLUG_EMPRESA = "gv5";
+
 export interface Post {
   id: string;
   company_id: string;
@@ -14,6 +17,7 @@ export interface Post {
   content: string;
   cover_image?: string;
   published_at?: string;
+  updated_at?: string;
   status: string;
   category?: string;
 }
@@ -24,7 +28,7 @@ export async function buscarPostsEmpresa(): Promise<Post[]> {
     const { data: company, error: companyError } = await supabase
       .from("companies")
       .select("id")
-      .eq("slug", "gv5")
+      .eq("slug", SLUG_EMPRESA)
       .eq("status", "active")
       .single();
 
@@ -58,7 +62,7 @@ export async function buscarPostPorSlug(slug: string): Promise<Post | null> {
     const { data: company, error: companyError } = await supabase
       .from("companies")
       .select("id")
-      .eq("slug", "gv5")
+      .eq("slug", SLUG_EMPRESA)
       .eq("status", "active")
       .single();
 

@@ -40,6 +40,7 @@
 
 .metaSuperior {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 14px;
   margin-bottom: 14px;
@@ -231,4 +232,43 @@
   .textosCta {
     max-width: 58%;
   }
+}
+
+/* Leia também: links internos para outros artigos */
+.leiaTambem {
+  max-width: 860px;
+  margin: 32px auto 0;
+}
+
+.tituloLeiaTambem {
+  color: var(--white);
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.listaLeiaTambem {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.listaLeiaTambem a {
+  display: block;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: rgba(18, 33, 56, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--gray-light);
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.listaLeiaTambem a:hover,
+.listaLeiaTambem a:focus-visible {
+  color: var(--white);
+  border-color: var(--red);
 }

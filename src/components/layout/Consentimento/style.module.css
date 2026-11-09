@@ -1,0 +1,80 @@
+.banner {
+  position: fixed;
+  left: 10px;
+  right: 10px;
+  bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+  z-index: 1000;
+  background: var(--navy2);
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.55);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.texto {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--gray-light);
+}
+
+.texto a {
+  color: var(--white);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.acoes {
+  display: flex;
+  gap: 8px;
+}
+
+.aceitar,
+.recusar {
+  flex: 1;
+  min-height: 44px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.aceitar {
+  background: var(--red);
+  color: var(--white);
+  border: none;
+}
+
+.recusar {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--white);
+}
+
+.aceitar:focus-visible,
+.recusar:focus-visible,
+.texto a:focus-visible {
+  outline: 2px solid var(--white);
+  outline-offset: 2px;
+}
+
+@media (min-width: 768px) {
+  .banner {
+    left: auto;
+    right: 24px;
+    bottom: 24px;
+    max-width: 420px;
+  }
+  .acoes {
+    justify-content: flex-end;
+  }
+  .aceitar,
+  .recusar {
+    flex: 0 0 auto;
+    padding: 0 22px;
+  }
+}

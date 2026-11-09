@@ -135,6 +135,25 @@
   font-weight: 700;
 }
 
+.linksLegais {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 16px;
+  margin-top: 8px;
+}
+
+.linksLegais a {
+  color: var(--gray-light);
+  text-decoration: underline;
+  padding: 6px 0;
+}
+
+.linksLegais a:hover,
+.linksLegais a:focus-visible {
+  color: var(--white);
+}
+
 /* BOTÃO FLUTUANTE WHATSAPP — MOBILE MAIOR */
 .botaoWhatsappFlutuante {
   position: fixed;
@@ -213,6 +232,9 @@
   .textoCopyright {
     text-align: right;
     font-size: 0.75rem;
+  }
+  .linksLegais {
+    justify-content: flex-end;
   }
   .botaoWhatsappFlutuante {
     bottom: 24px;

@@ -1,0 +1,78 @@
+.secao {
+  padding: 110px 0 var(--espacamento-secao);
+  position: relative;
+  z-index: 2;
+}
+
+.largura {
+  max-width: 760px;
+}
+
+.voltar {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--gray-light);
+  text-decoration: none;
+}
+
+.voltar:hover {
+  color: var(--white);
+}
+
+.titulo {
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--white);
+  margin-top: 8px;
+}
+
+.data {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: var(--gray);
+}
+
+.texto {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-size: 1rem;
+  color: var(--gray-light);
+  line-height: 1.7;
+}
+
+.texto h2 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--white);
+  margin-top: 18px;
+  scroll-margin-top: 100px;
+}
+
+.texto ul {
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.texto strong {
+  color: var(--white);
+}
+
+.texto a {
+  color: var(--red-light);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.texto a:focus-visible,
+.voltar:focus-visible {
+  outline: 2px solid var(--white);
+  outline-offset: 2px;
+}

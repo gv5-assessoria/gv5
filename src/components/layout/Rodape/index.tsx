@@ -2,7 +2,11 @@
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { FaInstagram, FaWhatsapp } from "react-icons/fa6";
+import Link from "next/link";
+import { CNPJ, INSTAGRAM, RAZAO_SOCIAL, WHATSAPP_EXIBICAO, linkWhatsApp } from "@/lib/site";
 import styles from "./style.module.css";
+
+const MENSAGEM_WHATSAPP = "Olá! Vim pelo site da GV5 e quero falar sobre o marketing do meu negócio.";
 
 export default function Rodape() {
   return (
@@ -21,7 +25,7 @@ export default function Rodape() {
               Engenharia estratégica, tráfego de alta precisão e criatividade direcionada à geração de lucro e autoridade duradoura.
             </p>
             <a
-              href="https://instagram.com"
+              href={INSTAGRAM}
               target="_blank"
               rel="noopener noreferrer"
               className={styles.iconeInstagram}
@@ -33,17 +37,17 @@ export default function Rodape() {
 
           <div className={styles.colunaLinks}>
             <div className={styles.tituloColuna}>Navegação</div>
-            <a href="#inicio" className={styles.linkItem}>Início</a>
-            <a href="#clientes" className={styles.linkItem}>Cases de Sucesso</a>
-            <a href="#metodo" className={styles.linkItem}>Nossa Metodologia</a>
-            <a href="#sobre" className={styles.linkItem}>Sobre a GV5</a>
+            <a href="/#inicio" className={styles.linkItem}>Início</a>
+            <a href="/#clientes" className={styles.linkItem}>Cases de Sucesso</a>
+            <a href="/#metodo" className={styles.linkItem}>Nossa Metodologia</a>
+            <a href="/#sobre" className={styles.linkItem}>Sobre a GV5</a>
           </div>
 
           <div className={styles.colunaLinks}>
             <div className={styles.tituloColuna}>Soluções</div>
-            <a href="#servicos" className={styles.linkItem}>Serviços Integrados</a>
-            <a href="#faq" className={styles.linkItem}>Dúvidas Frequentes</a>
-            <a href="#inicio" className={styles.linkItem}>Diagnóstico Comercial</a>
+            <a href="/#servicos" className={styles.linkItem}>Serviços Integrados</a>
+            <a href="/#faq" className={styles.linkItem}>Dúvidas Frequentes</a>
+            <a href="/#inicio" className={styles.linkItem}>Diagnóstico Comercial</a>
           </div>
 
           <div className={styles.colunaContato}>
@@ -52,12 +56,12 @@ export default function Rodape() {
               Fale agora com nosso time e avalie a prontidão da sua empresa para acelerar no mercado.
             </p>
             <a
-              href="https://wa.me/5511989437638"
+              href={linkWhatsApp(MENSAGEM_WHATSAPP)}
               target="_blank"
               rel="noopener noreferrer"
               className={styles.linkWhatsapp}
             >
-              <span>(11) 98943-7638</span>
+              <span>{WHATSAPP_EXIBICAO}</span>
               <ArrowUpRight size={16} />
             </a>
           </div>
@@ -85,13 +89,17 @@ export default function Rodape() {
             </div>
           </div>
           <div className={styles.textoCopyright}>
-            2026 © GV5 Assessoria de Marketing Digital. CNPJ: <span className={styles.cnpjDestaque}>64.530.042/0001-17</span>. Todos os direitos reservados.
+            {new Date().getFullYear()} © {RAZAO_SOCIAL}. CNPJ: <span className={styles.cnpjDestaque}>{CNPJ}</span>. Todos os direitos reservados.
+            <nav className={styles.linksLegais} aria-label="Links legais">
+              <Link href="/privacidade">Política de Privacidade</Link>
+              <Link href="/termos">Termos de Uso</Link>
+            </nav>
           </div>
         </div>
       </div>
 
       <a
-        href="https://wa.me/5511989437638"
+        href={linkWhatsApp(MENSAGEM_WHATSAPP)}
         target="_blank"
         rel="noopener noreferrer"
         className={styles.botaoWhatsappFlutuante}

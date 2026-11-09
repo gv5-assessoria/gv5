@@ -473,6 +473,11 @@
 
 .textoErro { color: #fca5a5; font-size: 0.78rem; font-weight: 700; text-align: center; }
 
+/* Aviso de privacidade embaixo do botão (LGPD) */
+.avisoPrivacidade { color: rgba(200, 215, 230, 0.75); font-size: 0.72rem; line-height: 1.4; text-align: center; }
+.avisoPrivacidade a { color: var(--white); text-decoration: underline; }
+.avisoPrivacidade a:focus-visible { outline: 2px solid var(--white); outline-offset: 2px; }
+
 .caixaSucesso {
   display: flex;
   flex-direction: column;

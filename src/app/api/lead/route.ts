@@ -54,6 +54,9 @@ export async function POST(req: NextRequest) {
 
     const corpo = await req.json();
     const { name, company_name, phone, segment, revenue, honeypot, token, timestamp } = corpo;
+    // TODO: o formulário também manda `corpo.origem` (utm_source, utm_medium, utm_campaign, utm_term, utm_content, gclid, fbclid),
+    // mas a RPC inserir_lead_seguro e a tabela leads do GV5 Insight só aceitam os 5 campos acima. Para gravar a origem,
+    // criar as colunas/parâmetros no banco do painel (fora deste repositório) e repassar aqui.
 
     // 1. Defesa Honeypot
     if (honeypot) {

@@ -2,7 +2,9 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { Check, ArrowUpRight, Loader2, CheckCircle2, ChevronDown } from "lucide-react";
+import Link from "next/link";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { enviarEvento, lerOrigem } from "@/lib/origem";
 import styles from "./style.module.css";
 
 function aplicarMascaraTelefone(valor: string) {
@@ -122,11 +124,15 @@ export default function FormularioInicial() {
           name: nome, company_name: empresa, phone: telefone,
           segment: segmento, revenue: faturamento, honeypot: honeypot,
           token: tokenSeguranca?.token, timestamp: tokenSeguranca?.timestamp,
+          // Origem da visita (UTM, gclid, fbclid). A rota ainda não grava: ver TODO em app/api/lead/route.ts.
+          origem: lerOrigem(),
         }),
       });
       const resultado = await resposta.json();
       if (!resposta.ok) throw new Error(resultado.error || "Ocorreu um erro ao enviar.");
       setSucesso(true);
+      // Conversão do formulário para o GTM (sem dado pessoal: só segmento e faixa de faturamento).
+      enviarEvento("envio_formulario", { segmento, faturamento });
       setNome(""); setTelefone(""); setEmpresa(""); setSegmento(""); setFaturamento(""); setHoneypot("");
     } catch (err: any) {
       setMensagemErro(err.message || "Ocorreu um erro ao enviar. Tente novamente.");
@@ -210,11 +216,11 @@ export default function FormularioInicial() {
                     <p className={styles.chamadaFormulario}>Receba a consultoria inicial da nossa equipe</p>
                   </div>
 
-                  <input type="text" placeholder="Seu nome completo" value={nome}
+                  <input type="text" placeholder="Seu nome completo" aria-label="Seu nome completo" autoComplete="name" value={nome}
                     onChange={(e) => setNome(e.target.value)} required maxLength={80} className={styles.campoTexto} />
-                  <input type="tel" placeholder="(DDD) 99999-9999" value={telefone}
+                  <input type="tel" placeholder="(DDD) 99999-9999" aria-label="Telefone ou WhatsApp com DDD" autoComplete="tel-national" value={telefone}
                     onChange={(e) => setTelefone(aplicarMascaraTelefone(e.target.value))} required className={styles.campoTexto} />
-                  <input type="text" placeholder="Nome do seu restaurante / delivery" value={empresa}
+                  <input type="text" placeholder="Nome do seu restaurante / delivery" aria-label="Nome do seu restaurante ou delivery" autoComplete="organization" value={empresa}
                     onChange={(e) => setEmpresa(e.target.value)} required maxLength={100} className={styles.campoTexto} />
 
                   <div className={styles.envolturaDropdown} ref={refDropdownSegmento}>
@@ -270,6 +276,10 @@ export default function FormularioInicial() {
                       "Quero vender mais investindo menos"
                     )}
                   </button>
+
+                  <p className={styles.avisoPrivacidade}>
+                    Ao enviar, você concorda com a <Link href="/privacidade">Política de Privacidade</Link>.
+                  </p>
                 </form>
               )}
             </div>

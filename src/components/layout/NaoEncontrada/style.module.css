@@ -1,0 +1,71 @@
+.secao {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  padding: 120px 0 var(--espacamento-secao);
+  position: relative;
+  z-index: 2;
+}
+
+.conteudo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 14px;
+}
+
+.codigo {
+  font-size: clamp(4.5rem, 16vw, 8rem);
+  font-weight: 900;
+  line-height: 1;
+  color: var(--red);
+  text-shadow: 0 0 40px var(--red-glow);
+}
+
+.titulo {
+  font-size: clamp(1.6rem, 5vw, 2.4rem);
+  font-weight: 800;
+  color: var(--white);
+}
+
+.texto {
+  color: var(--gray-light);
+  font-size: 1rem;
+}
+
+.acoes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.principal,
+.secundario {
+  display: inline-flex;
+  align-items: center;
+  min-height: 46px;
+  padding: 0 22px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.principal {
+  background: var(--red);
+  color: var(--white);
+}
+
+.secundario {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: var(--white);
+}
+
+.principal:focus-visible,
+.secundario:focus-visible {
+  outline: 2px solid var(--white);
+  outline-offset: 2px;
+}
